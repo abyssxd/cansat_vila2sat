@@ -19,6 +19,9 @@ const tempChart = new Chart(tempChartElement, {
             y: {
                 beginAtZero: true
             }
+        },
+        animation: {
+            duration: 0, // Set the duration to 0 milliseconds to disable animation
         }
     }
 });
@@ -39,8 +42,11 @@ const altitudeChart = new Chart(altitudeChartElement, {
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: false
             }
+        },
+        animation: {
+            duration: 0, // Set the duration to 0 milliseconds to disable animation
         }
     }
 });
@@ -61,8 +67,11 @@ const pressureChart = new Chart(pressureChartElement, {
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: false
             }
+        },
+        animation: {
+            duration: 0, // Set the duration to 0 milliseconds to disable animation
         }
     }
 });
