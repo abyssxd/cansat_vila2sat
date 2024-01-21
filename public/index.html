@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vila2Sat Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar-brand">
+            <a href="/">Vila2Sat Dashboard</a>
+        </div>
+        <div class="nav-right">
+            <ul class="navbar-nav">
+                <li><a href="https://github.com/abyssxd/cansat_vila2sat">Github</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Graphs</h1>
+    <div class="chartContainer">
+        <div class="chart">
+            <canvas id="temperature"></canvas>
+        </div>
+
+        <div class="chart">
+            <canvas id="pressure"></canvas>
+        </div>
+
+        <div class="chart">
+            <canvas id="altitude"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
