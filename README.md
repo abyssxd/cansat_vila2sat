@@ -1,3 +1,3 @@
 # cansat_vila2sat
 Dashboard for monitoring Vila2Sat's CanSat data
-![alt text](![image](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/e624097c-6ec6-4f14-9d93-87f56baaf7d3))
+![alt text](https://cdn.discordapp.com/attachments/937704145828331521/1198620303916552232/image.png)
