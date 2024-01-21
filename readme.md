@@ -17,7 +17,7 @@ This can be easily achieved using just JS, but it uses websockets as using webso
 All these graphs get updated real time as the data we recieve from the CanSat is stored in the csv file directly.
 
 ### Map:
-- A real time map that tracks the position of the CanSat & shows the device's location.
+- A real time map that tracks the position of the CanSat (https://www.esa.int/Education/CanSat) & shows the device's location.
 
 ## Screenshots
 ![alt text](https://cdn.discordapp.com/attachments/937704145828331521/1198773138394202242/image.png)
