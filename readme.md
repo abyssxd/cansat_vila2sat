@@ -8,10 +8,19 @@ This web application uses websockets to fetch data from a .csv file and uses cha
 This can be easily achieved using just JS, but it uses websockets as using websockets is much more efficient.
 
 ## What does it offer?
-This currently shows graphs for Tempreature, Alititue and atmospheric pressure with real time updates.
+### Graphs: 
+- Tempreature
+- Altitude
+- Atmospheric Pressure
+- Humidity
+- Velocity
+All these graphs get updated real time as the data we recieve from the CanSat is stored in the csv file directly.
+
+### Map:
+- A real time map that tracks the position of the CanSat & shows the device's location.
 
 ## Screenshots
-![alt text](https://cdn.discordapp.com/attachments/937704145828331521/1198635256761286746/image.png?ex=65bf9f12&is=65ad2a12&hm=e637b8950631aabcf8c39b27ea24524c9d8532373a7e5f7548a31be6d92269cb&)
+![alt text](https://cdn.discordapp.com/attachments/937704145828331521/1198773138394202242/image.png)
 
 ## Setup
 

@@ -238,7 +238,7 @@ ws.onmessage = (event) => {
         let velocities = [];
 
         //Loop through the entire csv file and calculate the delta time & delta altitude for each row and store them in deltaTime & deltaAltitude variables
-        for (let i = 1; i < timeData.length; i++) {
+        for (let i = 0; i < timeData.length; i++) {
             let deltaTime = timeData[i] - timeData[i - 1];
             let deltaAltitude = altitudeData[i] - altitudeData[i - 1];
 
