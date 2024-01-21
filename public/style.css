@@ -5,17 +5,35 @@ body {
     padding: 0;
 }
 
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
 .chartContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
+    max-width: 50%;
 }
 
 h1 {
     margin-left: 30px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+#map {
+    height: 600px;
+    width: 50%;
 }
 
 .chart {
@@ -27,6 +45,7 @@ h1 {
     margin: 10px;
     padding: 10px;
     border: 2px solid #8d33f380;
+    box-shadow: 0 4px 8px 0 rgba(204, 20, 255, 0.129), 0 6px 20px 0 rgba(204, 20, 255, 0.129);
     box-sizing: border-box;
 }
 
@@ -80,6 +99,7 @@ nav {
     }
     .chartContainer {
         justify-content: center;
+        max-width: 100%;
     }
     h1 {
         margin-left: 0;
@@ -94,5 +114,17 @@ nav {
     }
     .navbar-nav li {
         margin: 0.5rem 0;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px;
+        align-content: space-around;
+        flex-direction: column;
+        align-items: baseline;
+    }
+    #map {
+        width: 100%;
     }
 }

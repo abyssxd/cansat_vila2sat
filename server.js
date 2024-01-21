@@ -8,8 +8,11 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 const csvFilePath = path.join(__dirname, 'sheet.csv');
+const jsonFilePath = path.join(__dirname, 'velocity_data.json');
+
 
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Variable to store the data that's already in the csv
 let initialCsvData = '';
