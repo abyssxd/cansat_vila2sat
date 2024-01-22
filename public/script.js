@@ -54,8 +54,26 @@ if ("geolocation" in navigator) { //Check if the browser has geolocation support
 
 // Created Charts ----- START
 
+
+
+
+
 //Create the tempreature chart using chart.js and assign it to the div with the temperature ID.
+// Define the plugin
+var imageBG = {
+    beforeDraw: function(chartInstance) {
+        var ctx = chartInstance.ctx;
+        ctx.save();
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, chartInstance.width, chartInstance.height);
+        ctx.restore();
+    }
+};
+
+// Get the chart element
 const tempChartElement = document.getElementById('temperature').getContext('2d');
+
+// Create the chart with the plugin
 const tempChart = new Chart(tempChartElement, {
     type: 'line',
     data: {
@@ -77,8 +95,10 @@ const tempChart = new Chart(tempChartElement, {
         animation: {
             duration: 0, //Cancel the animation because it looks weird when this chart updates literally every second
         }
-    }
+    },
+    plugins: [imageBG] // Add a white background for when the chart's image is created
 });
+
 
 //Create the altitude chart using chart.js and assign it to the div with the altitude ID.
 const altitudeChartElement = document.getElementById('altitude').getContext('2d');
@@ -103,7 +123,8 @@ const altitudeChart = new Chart(altitudeChartElement, {
         animation: {
             duration: 0, //Cancel the animation because it looks weird when this chart updates literally every second
         }
-    }
+    },
+    plugins: [imageBG] // Add a white background for when the chart's image is created
 });
 
 //Create the pressure chart using chart.js and assign it to the div with the pressure ID.
@@ -129,7 +150,8 @@ const pressureChart = new Chart(pressureChartElement, {
         animation: {
             duration: 0, //Cancel the animation because it looks weird when this chart updates literally every second
         }
-    }
+    },
+    plugins: [imageBG] // Add a white background for when the chart's image is created
 });
 
 //Create the humidity chart using chart.js and assign it to the div with the humidity ID.
@@ -155,7 +177,8 @@ const humidityChart = new Chart(humidityChartElement, {
         animation: {
             duration: 0, //Cancel the animation because it looks weird when this chart updates literally every second
         }
-    }
+    },
+    plugins: [imageBG] // Add a white background for when the chart's image is created
 });
 
 //Create the velocity chart using chart.js and assign it to the div with the velocity ID.
@@ -181,7 +204,8 @@ const velocityChart = new Chart(velocityChartElement, {
         animation: {
             duration: 0, //Cancel the animation because it looks weird when this chart updates literally every second
         }
-    }
+    },
+    plugins: [imageBG] // Add a white background for when the chart's image is created
 });
 // Created Charts ----- END
 
@@ -210,23 +234,43 @@ ws.onmessage = (event) => {
     const csvData = parseCSV(event.data);
 
     //Add the time from the CSV file to the time variable
-    const time = csvData.map(row => row[0]);
+    const time = csvData.map(row => row[0]); // Prepend "0" to the time labels
 
 
     const tempData = csvData.map(row => parseFloat(row[1])); //Add the tempreature from the CSV file to the tempData variable
     updateChartData(tempChart, time, tempData); //Update temperature chart using tempData & time variable
 
+    //Update the chart download image
+    var tempChartDownloadPNG = document.getElementById("temp_png");
+    tempChartDownloadPNG.href = tempChart.toBase64Image();
+    tempChartDownloadPNG.download = 'tempChart.png'; // Trigger the download
+
     //Update pressure chart
     const pressureData = csvData.map(row => parseFloat(row[2])); //Add the pressure from the CSV file to the pressureData variable
     updateChartData(pressureChart, time, pressureData); //Update pressure chart using pressureData & time variable
+
+    //Update the chart download image
+    var pressureChartDownloadPNG = document.getElementById("pressure_png");
+    pressureChartDownloadPNG.href = pressureChart.toBase64Image();
+    pressureChartDownloadPNG.download = 'pressureChart.png'; // Trigger the download
 
     //Update altitude chart
     const altitudeData = csvData.map(row => parseFloat(row[3])); //Add the altitude from the CSV file to the altitudeData variable
     updateChartData(altitudeChart, time, altitudeData); //Update altitude chart using altitudeData & time variable
 
+    //Update the chart download image
+    var altitudeChartDownloadPNG = document.getElementById("altitude_png");
+    altitudeChartDownloadPNG.href = altitudeChart.toBase64Image();
+    altitudeChartDownloadPNG.download = 'altitudeChart.png'; // Trigger the download
+
     //Update humidity chart
     const humidityData = csvData.map(row => parseFloat(row[4])); //Add the humidity from the CSV file to the humidityData variable
     updateChartData(humidityChart, time, humidityData); //Update humidity chart using humidityData & time variable
+
+    //Update the chart download image
+    var humidityChartDownloadPNG = document.getElementById("humidity_png");
+    humidityChartDownloadPNG.href = humidityChart.toBase64Image();
+    humidityChartDownloadPNG.download = 'humidityChart.png'; // Trigger the download
 
 
     //Function to calculate Velocity
@@ -257,6 +301,12 @@ ws.onmessage = (event) => {
     const velocities = calculateVelocity(csvData); //Store the velocities in the velocities array
 
     updateChartData(velocityChart, time, velocities); //Update the velocity chart with the data
+
+    //Update the chart download image
+    var velocityChartDownloadPNG = document.getElementById("velocity_png");
+    velocityChartDownloadPNG.href = velocityChart.toBase64Image();
+    velocityChartDownloadPNG.download = 'velocityChart.png'; // Trigger the download
+
 
     const latestRow = csvData[csvData.length - 1]; //Get the latest row for the latest GPS location
     const latitude = parseFloat(latestRow[5]); //Store the latitude in the latitude variable
