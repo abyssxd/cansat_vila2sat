@@ -1,6 +1,7 @@
 body {
-    background-color: #222;
-    color: #fff;
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     max-height: 100%;
@@ -17,8 +18,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 20px;
-    margin-top: 0px;
+    margin: 10px 2.5%;
 }
 
 .chartContainer {
@@ -26,31 +26,32 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 50%;
+    max-width: 45%;
 }
 
 h1 {
-    margin-left: 30px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #222;
 }
 
 #map {
-    height: 600px;
-    width: 50%;
+    height: 730px;
+    width: 52%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .chart {
     width: 40%;
     max-width: 500px;
     height: auto;
-    background-color: white;
-    color: black;
+    background-color: #ffffff;
+    color: #333;
     margin: 10px;
     padding: 10px;
-    border: 2px solid #8d33f380;
-    box-shadow: 0 4px 8px 0 rgba(204, 20, 255, 0.129), 0 6px 20px 0 rgba(204, 20, 255, 0.129);
-    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .download {
@@ -61,28 +62,32 @@ h1 {
 }
 
 .download a {
-    color: rgb(255, 255, 255);
+    color: #007bff;
+    background-color: #ffffff;
+    border-color: #007bff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
     text-decoration: none;
-    border: 1px solid #0080ff;
-    padding: 6px;
-    background-color: #7fbdff;
     display: inline;
     margin: 5px;
 }
 
 nav {
-    background-color: #040D12;
+    background-color: #242424;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand a {
     text-decoration: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .nav-right {
