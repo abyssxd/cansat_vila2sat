@@ -26,6 +26,9 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 ## Screenshots
 ![alt text](https://cdn.discordapp.com/attachments/937704145828331521/1198773138394202242/image.png)
 
+## Serial to CSV Converter
+You can find the Serial to CSV converter that was made for this dashboard here -> https://github.com/abyssxd/serial_csv/
+
 ## Setup
 
 1. Make sure you have `node.js` installed. 
