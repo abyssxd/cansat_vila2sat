@@ -10,8 +10,18 @@ body {
 
 .title {
     display: flex;
+    min-height: 50px;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.child:first-child {
+    left: -20px;
+}
+
+.child:last-child {
+    position: relative;
+    left: -50px;
 }
 
 .container {
@@ -42,9 +52,9 @@ h1 {
 }
 
 .chart {
-    width: 40%;
-    max-width: 500px;
+    width: 45%;
     height: auto;
+    max-width: 500px;
     background-color: #ffffff;
     color: #333;
     margin: 10px;

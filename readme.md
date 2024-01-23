@@ -24,7 +24,7 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 - A real time map created using leaflet maps that tracks the position of the CanSat & shows the device's location.
 
 ## Screenshots
-![alt text](https://cdn.discordapp.com/attachments/937704145828331521/1199069438150987876/image.png)
+![alt text](https://cdn.discordapp.com/attachments/937704145828331521/1199454828275978362/image.png)
 
 ## Serial to CSV Converter
 You can find the Serial to CSV converter that was made for this dashboard here -> https://github.com/abyssxd/serial_csv/

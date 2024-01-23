@@ -154,32 +154,6 @@ const pressureChart = new Chart(pressureChartElement, {
     plugins: [imageBG] // Add a white background for when the chart's image is created
 });
 
-//Create the humidity chart using chart.js and assign it to the div with the humidity ID.
-const humidityChartElement = document.getElementById('humidity').getContext('2d');
-const humidityChart = new Chart(humidityChartElement, {
-    type: 'line', //Type of chart
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Humidity', //The label of the chart
-            data: [],
-            backgroundColor: 'rgba(0, 123, 255, 0.5)',
-            borderColor: 'rgba(0, 123, 255, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: false //Don't begin the chart at 0
-            }
-        },
-        animation: {
-            duration: 0, //Cancel the animation because it looks weird when this chart updates literally every second
-        }
-    },
-    plugins: [imageBG] // Add a white background for when the chart's image is created
-});
 
 //Create the velocity chart using chart.js and assign it to the div with the velocity ID.
 const velocityChartElement = document.getElementById('velocity').getContext('2d');
@@ -263,14 +237,6 @@ ws.onmessage = (event) => {
     altitudeChartDownloadPNG.href = altitudeChart.toBase64Image();
     altitudeChartDownloadPNG.download = 'altitudeChart.png'; // Trigger the download
 
-    //Update humidity chart
-    const humidityData = csvData.map(row => parseFloat(row[4])); //Add the humidity from the CSV file to the humidityData variable
-    updateChartData(humidityChart, time, humidityData); //Update humidity chart using humidityData & time variable
-
-    //Update the chart download image
-    var humidityChartDownloadPNG = document.getElementById("humidity_png");
-    humidityChartDownloadPNG.href = humidityChart.toBase64Image();
-    humidityChartDownloadPNG.download = 'humidityChart.png'; // Trigger the download
 
 
     //Function to calculate Velocity
@@ -309,8 +275,8 @@ ws.onmessage = (event) => {
 
 
     const latestRow = csvData[csvData.length - 1]; //Get the latest row for the latest GPS location
-    const latitude = parseFloat(latestRow[5]); //Store the latitude in the latitude variable
-    const longitude = parseFloat(latestRow[6]); //Store the longitude in the longitude variable
+    const latitude = parseFloat(latestRow[4]); //Store the latitude in the latitude variable
+    const longitude = parseFloat(latestRow[5]); //Store the longitude in the longitude variable
 
     if (!isNaN(latitude) && !isNaN(longitude)) { //Check if the latitude and logitude values are NaN, if they are, it seems not place the marker and mess up the map.
         if (marker) {
