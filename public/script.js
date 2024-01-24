@@ -83,7 +83,8 @@ const tempChart = new Chart(tempChartElement, {
             data: [],
             backgroundColor: 'rgba(0, 123, 255, 0.5)',
             borderColor: 'rgba(0, 123, 255, 1)',
-            borderWidth: 1
+            borderWidth: 1,
+            pointRadius: 0
         }]
     },
     options: {
@@ -111,7 +112,8 @@ const altitudeChart = new Chart(altitudeChartElement, {
             data: [],
             backgroundColor: 'rgba(0, 123, 255, 0.5)',
             borderColor: 'rgba(0, 123, 255, 1)',
-            borderWidth: 1
+            borderWidth: 1,
+            pointRadius: 0
         }]
     },
     options: {
@@ -138,7 +140,8 @@ const pressureChart = new Chart(pressureChartElement, {
             data: [],
             backgroundColor: 'rgba(0, 123, 255, 0.5)',
             borderColor: 'rgba(0, 123, 255, 1)',
-            borderWidth: 1
+            borderWidth: 1,
+            pointRadius: 0
         }]
     },
     options: {
@@ -166,7 +169,8 @@ const velocityChart = new Chart(velocityChartElement, {
             data: [],
             backgroundColor: 'rgba(0, 123, 255, 0.5)',
             borderColor: 'rgba(0, 123, 255, 1)',
-            borderWidth: 1
+            borderWidth: 1,
+            pointRadius: 0
         }]
     },
     options: {
@@ -182,6 +186,7 @@ const velocityChart = new Chart(velocityChartElement, {
     plugins: [imageBG] // Add a white background for when the chart's image is created
 });
 // Created Charts ----- END
+
 
 
 //Websocket connection ---- START
