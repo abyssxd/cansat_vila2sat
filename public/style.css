@@ -13,6 +13,11 @@ body {
     min-height: 50px;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-bottom: -15px;
+}
+
+hr {
+    margin-bottom: 20px;
 }
 
 .child:first-child {
@@ -73,15 +78,29 @@ h1 {
 }
 
 .download a {
-    color: #007bff;
     background-color: #ffffff;
-    border-color: #007bff;
     padding: 8px 12px;
     border-radius: 4px;
     font-weight: bold;
     text-decoration: none;
     display: inline;
     margin: 5px;
+}
+
+.temperature a {
+    color: rgba(237, 125, 49, 1);
+}
+
+.altitude a {
+    color: rgba(106, 90, 205, 1);
+}
+
+.pressure a {
+    color: rgba(112, 173, 71, 1);
+}
+
+.velocity a {
+    color: rgba(220, 20, 60, 1);
 }
 
 nav {

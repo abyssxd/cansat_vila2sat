@@ -81,8 +81,8 @@ const tempChart = new Chart(tempChartElement, {
         datasets: [{
             label: 'Temperature',
             data: [],
-            backgroundColor: 'rgba(0, 123, 255, 0.5)',
-            borderColor: 'rgba(0, 123, 255, 1)',
+            backgroundColor: 'rgba(237, 125, 49, 0.5)',
+            borderColor: 'rgba(237, 125, 49, 1)',
             borderWidth: 1,
             pointRadius: 0
         }]
@@ -110,8 +110,8 @@ const altitudeChart = new Chart(altitudeChartElement, {
         datasets: [{
             label: 'Altitude', //The label of the chart
             data: [],
-            backgroundColor: 'rgba(0, 123, 255, 0.5)',
-            borderColor: 'rgba(0, 123, 255, 1)',
+            backgroundColor: 'rgba(106, 90, 205, 0.5)',
+            borderColor: 'rgba(106, 90, 205, 1)',
             borderWidth: 1,
             pointRadius: 0
         }]
@@ -138,8 +138,8 @@ const pressureChart = new Chart(pressureChartElement, {
         datasets: [{
             label: 'Pressure', //The label of the chart
             data: [],
-            backgroundColor: 'rgba(0, 123, 255, 0.5)',
-            borderColor: 'rgba(0, 123, 255, 1)',
+            backgroundColor: 'rgba(112, 173, 71, 0.5)',
+            borderColor: 'rgba(112, 173, 71, 1)',
             borderWidth: 1,
             pointRadius: 0
         }]
@@ -167,8 +167,8 @@ const velocityChart = new Chart(velocityChartElement, {
         datasets: [{
             label: 'Velocity', //The label of the chart
             data: [],
-            backgroundColor: 'rgba(0, 123, 255, 0.5)',
-            borderColor: 'rgba(0, 123, 255, 1)',
+            backgroundColor: 'rgba(220, 20, 60, 0.5)',
+            borderColor: 'rgba(220, 20, 60, 1)',
             borderWidth: 1,
             pointRadius: 0
         }]
