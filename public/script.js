@@ -187,6 +187,36 @@ const velocityChart = new Chart(velocityChartElement, {
 });
 // Created Charts ----- END
 
+function downloadChart(chart, fileName) {
+    // Save original sizes
+    var originalSize = {
+        width: chart.width,
+        height: chart.height
+    };
+
+    // Temporarily resize chart to desired download size
+    chart.resize(1920, 1080); // for a 16:9 aspect ratio
+
+    // Trigger download after resize
+    chart.update({
+        duration: 0 // Update instantly
+    }, true); // Pass `true` as the second argument to make the resize happen immediately
+
+    // Create a temporary link for the download
+    var downloadLink = document.createElement('a');
+    downloadLink.href = chart.toBase64Image();
+    downloadLink.download = fileName;
+    document.body.appendChild(downloadLink); // Needed for Firefox
+    downloadLink.click();
+    document.body.removeChild(downloadLink); // Clean up
+
+    // Restore original chart sizes
+    chart.resize(originalSize.width, originalSize.height);
+    chart.update({
+        duration: 0
+    });
+}
+
 
 
 //Websocket connection ---- START
@@ -219,29 +249,32 @@ ws.onmessage = (event) => {
     const tempData = csvData.map(row => parseFloat(row[1])); //Add the tempreature from the CSV file to the tempData variable
     updateChartData(tempChart, time, tempData); //Update temperature chart using tempData & time variable
 
-    //Update the chart download image
-    var tempChartDownloadPNG = document.getElementById("temp_png");
-    tempChartDownloadPNG.href = tempChart.toBase64Image();
-    tempChartDownloadPNG.download = 'tempChart.png'; // Trigger the download
 
+    // Download the chart
+    var tempChartDownloadPNG = document.getElementById("temp_png");
+    tempChartDownloadPNG.addEventListener('click', function() {
+        downloadChart(tempChart, 'tempChart.png');
+    });
+    
     //Update pressure chart
     const pressureData = csvData.map(row => parseFloat(row[2])); //Add the pressure from the CSV file to the pressureData variable
     updateChartData(pressureChart, time, pressureData); //Update pressure chart using pressureData & time variable
 
-    //Update the chart download image
-    var pressureChartDownloadPNG = document.getElementById("pressure_png");
-    pressureChartDownloadPNG.href = pressureChart.toBase64Image();
-    pressureChartDownloadPNG.download = 'pressureChart.png'; // Trigger the download
+    // Download the chart
+    var tempChartDownloadPNG = document.getElementById("pressure_png");
+    tempChartDownloadPNG.addEventListener('click', function() {
+        downloadChart(pressureChart, 'pressureChart.png');
+    });
 
     //Update altitude chart
     const altitudeData = csvData.map(row => parseFloat(row[3])); //Add the altitude from the CSV file to the altitudeData variable
     updateChartData(altitudeChart, time, altitudeData); //Update altitude chart using altitudeData & time variable
 
-    //Update the chart download image
-    var altitudeChartDownloadPNG = document.getElementById("altitude_png");
-    altitudeChartDownloadPNG.href = altitudeChart.toBase64Image();
-    altitudeChartDownloadPNG.download = 'altitudeChart.png'; // Trigger the download
-
+    // Download the chart
+    var tempChartDownloadPNG = document.getElementById("altitude_png");
+    tempChartDownloadPNG.addEventListener('click', function() {
+        downloadChart(altitudeChart, 'altitudeChart.png');
+    });
 
 
     //Function to calculate Velocity
@@ -273,11 +306,12 @@ ws.onmessage = (event) => {
 
     updateChartData(velocityChart, time, velocities); //Update the velocity chart with the data
 
-    //Update the chart download image
-    var velocityChartDownloadPNG = document.getElementById("velocity_png");
-    velocityChartDownloadPNG.href = velocityChart.toBase64Image();
-    velocityChartDownloadPNG.download = 'velocityChart.png'; // Trigger the download
-
+    // Download the chart
+    var tempChartDownloadPNG = document.getElementById("velocity_png");
+    tempChartDownloadPNG.addEventListener('click', function() {
+        downloadChart(velocityChart, 'velocityChart.png');
+    });
+    
 
     const latestRow = csvData[csvData.length - 1]; //Get the latest row for the latest GPS location
     const latitude = parseFloat(latestRow[4]); //Store the latitude in the latitude variable
