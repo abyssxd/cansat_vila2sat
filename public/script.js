@@ -235,6 +235,26 @@ ws.onclose = function(event) {
 };
 //Websocket connection ---- END
 
+//Chart downloads
+const tempChartDownloadPNG = document.getElementById("temp_png");
+tempChartDownloadPNG.addEventListener('click', function() {
+    downloadChart(tempChart, 'tempChart.png');
+});
+
+const pressureChartDownloadPNG = document.getElementById("pressure_png");
+pressureChartDownloadPNG.addEventListener('click', function() {
+    downloadChart(pressureChart, 'pressureChart.png');
+});
+
+const altitudeChartDownloadPNG = document.getElementById("altitude_png");
+altitudeChartDownloadPNG.addEventListener('click', function() {
+    downloadChart(altitudeChart, 'altitudeChart.png');
+});
+
+const velocityChartDownloadPNG = document.getElementById("velocity_png");
+velocityChartDownloadPNG.addEventListener('click', function() {
+    downloadChart(velocityChart, 'velocityChart.png');
+});
 
 //Listen for new changes to the csv files using the websocket
 ws.onmessage = (event) => {
@@ -249,32 +269,16 @@ ws.onmessage = (event) => {
     const tempData = csvData.map(row => parseFloat(row[1])); //Add the tempreature from the CSV file to the tempData variable
     updateChartData(tempChart, time, tempData); //Update temperature chart using tempData & time variable
 
-
-    // Download the chart
-    var tempChartDownloadPNG = document.getElementById("temp_png");
-    tempChartDownloadPNG.addEventListener('click', function() {
-        downloadChart(tempChart, 'tempChart.png');
-    });
     
     //Update pressure chart
     const pressureData = csvData.map(row => parseFloat(row[2])); //Add the pressure from the CSV file to the pressureData variable
     updateChartData(pressureChart, time, pressureData); //Update pressure chart using pressureData & time variable
 
-    // Download the chart
-    var tempChartDownloadPNG = document.getElementById("pressure_png");
-    tempChartDownloadPNG.addEventListener('click', function() {
-        downloadChart(pressureChart, 'pressureChart.png');
-    });
 
     //Update altitude chart
     const altitudeData = csvData.map(row => parseFloat(row[3])); //Add the altitude from the CSV file to the altitudeData variable
     updateChartData(altitudeChart, time, altitudeData); //Update altitude chart using altitudeData & time variable
 
-    // Download the chart
-    var tempChartDownloadPNG = document.getElementById("altitude_png");
-    tempChartDownloadPNG.addEventListener('click', function() {
-        downloadChart(altitudeChart, 'altitudeChart.png');
-    });
 
 
     //Function to calculate Velocity
@@ -306,12 +310,6 @@ ws.onmessage = (event) => {
 
     updateChartData(velocityChart, time, velocities); //Update the velocity chart with the data
 
-    // Download the chart
-    var tempChartDownloadPNG = document.getElementById("velocity_png");
-    tempChartDownloadPNG.addEventListener('click', function() {
-        downloadChart(velocityChart, 'velocityChart.png');
-    });
-    
 
     const latestRow = csvData[csvData.length - 1]; //Get the latest row for the latest GPS location
     const latitude = parseFloat(latestRow[4]); //Store the latitude in the latitude variable
