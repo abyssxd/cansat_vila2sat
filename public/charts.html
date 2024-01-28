@@ -4,7 +4,7 @@
 <head>
     <title>Vila2Sat Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/charts.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body onload="showTemp()">
 
     <nav>
         <div class="navbar-brand">
@@ -29,29 +29,28 @@
     </nav>
 
     <div class="title">
-        <h1 class="child">Graphs</h1>
-        <h1 class="child">Map</h1>
+        <a class="temp_show" onclick="showTemp()">Tempreature</a><a class="pressure_show" onclick="showPressure()">Pressure</a><a class="altitude_show" onclick="showAltitude()">Altitude</a><a class="velocity_show" onclick="showVelocity()">Velocity</a>
     </div>
     <hr>
 
     <div class="container">
         <div class="chartContainer">
 
-            <div class="chart">
+            <div id="tempchart" class="chart">
                 <canvas id="temperature"></canvas>
                 <div class="download temperature">
                     <a id="temp_png">Download Chart Image</a>
                 </div>
             </div>
 
-            <div class="chart">
+            <div id="preschart" class="chart">
                 <canvas id="pressure"></canvas>
                 <div class="download pressure">
                     <a id="pressure_png">Download Chart Image</a>
                 </div>
             </div>
 
-            <div class="chart">
+            <div id="altichart" class="chart">
                 <canvas id="altitude"></canvas>
                 <div class="download altitude">
                     <a id="altitude_png">Download Chart Image</a>
@@ -59,7 +58,7 @@
             </div>
 
 
-            <div class="chart">
+            <div id="velochart" class="chart">
                 <canvas id="velocity"></canvas>
                 <div class="download velocity">
                     <a id="velocity_png">Download Chart Image</a>
@@ -67,10 +66,9 @@
             </div>
 
         </div>
-        <div id="map"></div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/charts.js"></script>
 </body>
 
 </html>
