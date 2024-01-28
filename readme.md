@@ -30,10 +30,8 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 
 ## Graphs
 
-![|500](https://cdn.discordapp.com/attachments/773822498717696030/1201255096919527434/image.png)
-![|500](https://cdn.discordapp.com/attachments/773822498717696030/1201255097263464578/image.png)
-![|500](https://cdn.discordapp.com/attachments/773822498717696030/1201255097645158410/image.png)
-![|500](https://cdn.discordapp.com/attachments/773822498717696030/1201255098077155348/image.png)
+<img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255096919527434/image.png" width="500" height="250">  <img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255097263464578/image.png" width="500" height="250">
+<img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255097645158410/image.png" width="500" height="250">  <img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255098077155348/image.png" width="500" height="250">
 
 ## Serial to CSV Converter
 You can find the Serial to CSV converter that was made for this dashboard here -> https://github.com/abyssxd/serial_csv/
