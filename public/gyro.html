@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vila2Sat Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/gyro.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar-brand">
+            <a href="/">Vila2Sat Dashboard</a>
+        </div>
+        <div class="nav-right">
+            <ul class="navbar-nav">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="charts.html">Graphs</a></li>
+                <li><a href="https://github.com/abyssxd/cansat_vila2sat" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="title">
+        <h1>Vila2Sat Gyroscope Model</h1>
+    </div>
+    <hr>
+
+    <div class="container">
+
+            <div id="cansatContainer"></div>
+
+    </div>
+
+    <script type="module" src="js/gyro.js"></script>
+
+</body>
+
+</html>
