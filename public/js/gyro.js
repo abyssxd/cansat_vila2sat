@@ -13,14 +13,15 @@ async function initCanSatVisualization() {
     container.appendChild(renderer.domElement);
 
     // Camera position
-    camera.position.z = 200;
+    camera.position.z = 250;
+    camera.position.y = 30;
 
     // Lighting
-    const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
+    const ambientLight = new THREE.AmbientLight(0xFF6900, 0.9);
     scene.add(ambientLight);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
     scene.add(directionalLight);
-    renderer.setClearColor(0xffffff); // Set to white or any contrasting color
+    renderer.setClearColor(0xABB8C3); // Set to white or any contrasting color
 
     let cansatModel;
 
@@ -33,7 +34,8 @@ async function initCanSatVisualization() {
         function (obj) {
             cansatModel = obj; // Assign the loaded model to the higher scope variable
             scene.add(cansatModel);
-            cansatModel.position.set(0, 0, 0); // Adjust position if necessary
+            cansatModel.position.set(0, 0, 0);
+            cansatModel.rotation.x = 200;
         },
         // called when loading is in progresses
         function (xhr) {
@@ -43,7 +45,16 @@ async function initCanSatVisualization() {
         function (error) {
             console.error('An error happened', error);
         }
+        
     );
+    
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+    }
+    animate();
+    
 }
 
 //Websocket connection ---- START
@@ -62,14 +73,8 @@ ws.onclose = function(event) {
 };
 //Websocket connection ---- END
 
-// Animation loop
-function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-}
 
 initCanSatVisualization().catch(error => console.error(error));
-animate();
 
 ws.onmessage = (event) => {
     // Assuming parseCSV function is correctly implemented and returns an array of arrays
