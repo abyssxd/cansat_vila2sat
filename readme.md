@@ -34,7 +34,7 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 <img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255097645158410/image.png" width="400" height="200">  <img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255098077155348/image.png" width="400" height="200">
 
 ## Vila2Sat Gyroscope Integration
-![alt text](https://cdn.discordapp.com/attachments/773822498717696030/1202425689307881533/image.png)
+![image](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/f7b9d43a-281d-4a81-90c9-9e3338797b39)
 
 ## Serial to CSV Converter
 You can find the Serial to CSV converter that was made for this dashboard here -> https://github.com/abyssxd/serial_csv/
