@@ -44,20 +44,56 @@ async function initCanSatVisualization() {
             console.error('An error happened', error);
         }
     );
+}
 
-    // Animation loop
-    function animate() {
-        requestAnimationFrame(animate);
+//Websocket connection ---- START
+const ws = new WebSocket('ws://localhost:3000');
 
-        if (cansatModel) {
-            cansatModel.rotation.x += 0.01;
-            cansatModel.rotation.y += 0.01;
-        }
+ws.onopen = function() {
+    console.log('WebSocket connection established');
+};
 
-        renderer.render(scene, camera);
-    }
+ws.onerror = function(error) {
+    console.error('WebSocket Error:', error);
+};
 
-    animate();
+ws.onclose = function(event) {
+    console.log('WebSocket connection closed', event.code, event.reason);
+};
+//Websocket connection ---- END
+
+// Animation loop
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
 }
 
 initCanSatVisualization().catch(error => console.error(error));
+animate();
+
+ws.onmessage = (event) => {
+    // Assuming parseCSV function is correctly implemented and returns an array of arrays
+    const csvData = parseCSV(event.data);
+
+    // Assuming the latest rotation data is in the last row of csvData
+    const latestData = csvData[csvData.length - 1];
+
+    // Get the rotation values from the latest row
+    const xRotation = Number(latestData[6]);
+    const yRotation = Number(latestData[7]);
+    const zRotation = Number(latestData[8]);
+
+    // Update the cansatModel's rotation
+    if (cansatModel) {
+//idk if the value sent by the gyro is in radions or degrees yet, incase its in degrees use this-> THREE.MathUtils.degToRad(xRotation);
+        cansatModel.rotation.x = xRotation;
+        cansatModel.rotation.y = yRotation;
+        cansatModel.rotation.z = zRotation;
+    }
+};
+
+//Function to parse the CSV & tirm the values. This should work both on windows and linux.
+function parseCSV(csvString) {
+    const rows = csvString.trim().split(/\r?\n/);
+    return rows.map(row => row.split(',').map(cell => cell.trim()));
+}
