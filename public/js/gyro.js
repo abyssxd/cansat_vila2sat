@@ -13,7 +13,7 @@ async function initCanSatVisualization() {
     container.appendChild(renderer.domElement);
 
     // Camera position
-    camera.position.z = 250;
+    camera.position.z = 230;
     camera.position.y = 30;
 
     // Lighting
