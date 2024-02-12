@@ -48,9 +48,30 @@ async function initCanSatVisualization() {
         
     );
     
-    // Animation loop
+    let targetRotation = { x: 0, y: 0, z: 0 }; // Target rotation in radians
+
+    ws.onmessage = (event) => {
+        const csvData = parseCSV(event.data);
+        const latestData = csvData[csvData.length - 1];
+    
+        // Assuming the gyro provides degrees, convert to radians
+        targetRotation.x = THREE.MathUtils.degToRad(Number(latestData[6]));
+        targetRotation.y = THREE.MathUtils.degToRad(Number(latestData[7]));
+        targetRotation.z = THREE.MathUtils.degToRad(Number(latestData[8]));
+    
+        console.log("Target rotation updated");
+    };
+    
     function animate() {
         requestAnimationFrame(animate);
+    
+        if (cansatModel) {
+            // Use lerp (Linear Interpolation) for a smoother transition
+            cansatModel.rotation.x += (targetRotation.x - cansatModel.rotation.x) * 0.05;
+            cansatModel.rotation.y += (targetRotation.y - cansatModel.rotation.y) * 0.05;
+            cansatModel.rotation.z += (targetRotation.z - cansatModel.rotation.z) * 0.05;
+        }
+    
         renderer.render(scene, camera);
     }
     animate();
@@ -76,26 +97,7 @@ ws.onclose = function(event) {
 
 initCanSatVisualization().catch(error => console.error(error));
 
-ws.onmessage = (event) => {
-    // Assuming parseCSV function is correctly implemented and returns an array of arrays
-    const csvData = parseCSV(event.data);
 
-    // Assuming the latest rotation data is in the last row of csvData
-    const latestData = csvData[csvData.length - 1];
-
-    // Get the rotation values from the latest row
-    const xRotation = Number(latestData[6]);
-    const yRotation = Number(latestData[7]);
-    const zRotation = Number(latestData[8]);
-
-    // Update the cansatModel's rotation
-    if (cansatModel) {
-//idk if the value sent by the gyro is in radions or degrees yet, incase its in degrees use this-> THREE.MathUtils.degToRad(xRotation);
-        cansatModel.rotation.x = xRotation;
-        cansatModel.rotation.y = yRotation;
-        cansatModel.rotation.z = zRotation;
-    }
-};
 
 //Function to parse the CSV & tirm the values. This should work both on windows and linux.
 function parseCSV(csvString) {
