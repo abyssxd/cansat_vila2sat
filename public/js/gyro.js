@@ -5,18 +5,18 @@ import { OBJLoader } from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/
 async function initCanSatVisualization() {
     const container = document.getElementById('cansatContainer');
 
-    // Scene setup
+    // Scene setup for the 3d model, controls the colors, lights, camera...etc
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(container.offsetWidth, container.offsetHeight);
     container.appendChild(renderer.domElement);
 
-    // Camera position
+    // Camera position, made to look at the model in a certain position
     camera.position.z = 230;
     camera.position.y = 30;
 
-    // Lighting
+    // Lighting to make it look cool
     const ambientLight = new THREE.AmbientLight(0xFF6900, 0.9);
     scene.add(ambientLight);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
@@ -25,23 +25,23 @@ async function initCanSatVisualization() {
 
     let cansatModel;
 
-    // OBJ Model loading
+    // Load the OBJ loader using the OBJLoader
     const loader = new OBJLoader();
     loader.load(
-        // Resource URL
+        // The URL to the model file
         'models/demo.obj',
-        // called when resource is loaded
+        //  Fuction that's called when the model is loaded to set its position...etc
         function (obj) {
             cansatModel = obj; // Assign the loaded model to the higher scope variable
             scene.add(cansatModel);
             cansatModel.position.set(0, 0, 0);
-            cansatModel.rotation.x = 200;
+            cansatModel.rotation.x = 200; //Set this position to make it straight when its loaded while it has no data
         },
-        // called when loading is in progresses
+        // Called when loading is in progress
         function (xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
         },
-        // called when loading has errors
+        // Called when loading has errors
         function (error) {
             console.error('An error happened', error);
         }
@@ -54,19 +54,19 @@ async function initCanSatVisualization() {
         const csvData = parseCSV(event.data);
         const latestData = csvData[csvData.length - 1];
     
-        // Assuming the gyro provides degrees, convert to radians
+        // Convert the target rotation to radians (Provided in deg by Vila2Sat)
         targetRotation.x = THREE.MathUtils.degToRad(Number(latestData[6]));
         targetRotation.y = THREE.MathUtils.degToRad(Number(latestData[7]));
         targetRotation.z = THREE.MathUtils.degToRad(Number(latestData[8]));
     
-        console.log("Target rotation updated");
+        console.log("Target rotation updated"); //Debug
     };
     
     function animate() {
         requestAnimationFrame(animate);
     
         if (cansatModel) {
-            // Use lerp (Linear Interpolation) for a smoother transition
+            // Use lerp (Linear Interpolation) for a smoother transition so that it doesn't teleport around.
             cansatModel.rotation.x += (targetRotation.x - cansatModel.rotation.x) * 0.05;
             cansatModel.rotation.y += (targetRotation.y - cansatModel.rotation.y) * 0.05;
             cansatModel.rotation.z += (targetRotation.z - cansatModel.rotation.z) * 0.05;
