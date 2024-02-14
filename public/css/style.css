@@ -20,33 +20,22 @@ hr {
     margin-bottom: 20px;
 }
 
-.child:first-child {
-    position: relative;
-    right: -70px;
-}
-
-.child:last-child {
-    position: relative;
-    left: 60px;
-}
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
     margin: 10px 2.5%;
     margin-left: 0;
 }
 
-.chartContainer {
+.blockContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 60%;
+    max-width: 100%;
+    text-align: center;
 }
 
-h1 {
+.title {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #222;
 }
@@ -58,11 +47,11 @@ h1 {
     border-radius: 10px;
 }
 
-.chart {
+.block {
     width: 45%;
     height: auto;
-    background-color: #ffffff;
-    color: #333;
+    background-color: #ff5c5c; /*red -> #ff5c5c, green -> #5cff5c*/
+    color: white;
     margin: 10px;
     padding: 10px;
     border: none;
