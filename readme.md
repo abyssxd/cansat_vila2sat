@@ -25,6 +25,9 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 
 # Screenshots
 
+## System Status
+![alt text](https://cdn.discordapp.com/attachments/773822498717696030/1208749884560121886/image.png?ex=65e46b0d&is=65d1f60d&hm=6534400f6a023266ee2cb2fc0e216f612e4a0ff9d7441a55102db8776c6acd28&)
+
 ## Overview
 ![alt text](https://cdn.discordapp.com/attachments/773822498717696030/1201255146366177342/image.png)
 
@@ -38,6 +41,8 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 
 ## Serial to CSV Converter
 You can find the Serial to CSV converter that was made for this dashboard here -> https://github.com/abyssxd/serial_csv/
+
+
 
 ## Setup
 

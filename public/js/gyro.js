@@ -35,7 +35,6 @@ async function initCanSatVisualization() {
             cansatModel = obj; // Assign the loaded model to the higher scope variable
             scene.add(cansatModel);
             cansatModel.position.set(0, 0, 0);
-            cansatModel.rotation.x = 200; //Set this position to make it straight when its loaded while it has no data
         },
         // Called when loading is in progress
         function (xhr) {
