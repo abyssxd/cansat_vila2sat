@@ -14,8 +14,8 @@ ws.onclose = function(event) {
 };
 
 
-/*TEST ---- START
-
+//TEST ---- START
+/*
 bmp_status = 0;
 gps_status = 0;
 gyro_status = 0;
@@ -23,8 +23,10 @@ apc_status = 0;
 
 if (bmp_status != 1 && gps_status != 1 && gyro_status != 1 && apc_status != 1) {
 	system_status = 1;
+    document.getElementById("errorBlock").style.display = "block";
 } else {
 	system_status = 0;
+    document.getElementById("errorBlock").style.display = "none";
 }
 
 
@@ -70,8 +72,8 @@ if (bmp_status == 1 && gps_status == 1 && gyro_status == 1 && apc_status == 1) {
 	document.getElementById("sysBlock").style.backgroundColor = "#ff5c5c";
 }
 
-
-*/TEST ---- END
+*/
+//TEST ---- END
 
 
 
@@ -87,10 +89,12 @@ ws.onmessage = (event) => {
         apc_status = latestData[12];
         
 
-        if(bmp_status != 1 && gps_status != 1 && gyro_status != 1 && apc_status != 1){
-        system_status = 1;
+        if (bmp_status != 1 && gps_status != 1 && gyro_status != 1 && apc_status != 1) {
+        	system_status = 1;
+            document.getElementById("errorBlock").style.display = "block";
         } else {
-        system_status = 0;
+        	system_status = 0;
+            document.getElementById("errorBlock").style.display = "none";
         }
         
 
