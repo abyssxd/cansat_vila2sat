@@ -84,10 +84,10 @@ ws.onmessage = (event) => {
         const latestData = csvData[csvData.length - 1];
     
         gps_sats = latestData[7];
-        bmp_status = latestData[9];
-        gps_status = latestData[10];
-        gyro_status = latestData[11];
-        apc_status = latestData[12];
+        bmp_status = latestData[15];
+        gps_status = latestData[16];
+        gyro_status = latestData[17];
+        apc_status = latestData[18];
         
         document.getElementById("gpsSats").innerHTML = "Satallites: " + gps_sats;
 
@@ -103,37 +103,37 @@ ws.onmessage = (event) => {
         if(system_status != 1){
             document.getElementById("sysBlock").style.backgroundColor = "#ff5c5c";
         }else{
-            document.getElementById("sysBlock").style.backgroundColor = "#5cff5c";
+            document.getElementById("sysBlock").style.backgroundColor = "#01e774";
         }
         
         if (bmp_status != 1){
             document.getElementById("bmpBlock").style.backgroundColor = "#ff5c5c";
         }else{
-            document.getElementById("bmpBlock").style.backgroundColor = "#5cff5c";
+            document.getElementById("bmpBlock").style.backgroundColor = "#01e774";
         }
         
         if (gps_status != 1){
             document.getElementById("gpsBlock").style.backgroundColor = "#ff5c5c";
         }else{
-            document.getElementById("gpsBlock").style.backgroundColor = "#5cff5c";
+            document.getElementById("gpsBlock").style.backgroundColor = "#01e774";
         }
         
         if (gyro_status != 1){
             document.getElementById("gyroBlock").style.backgroundColor = "#ff5c5c";
         }else{
-            document.getElementById("gyroBlock").style.backgroundColor = "#5cff5c";
+            document.getElementById("gyroBlock").style.backgroundColor = "#01e774";
         }
         
         if (apc_status != 1){
             document.getElementById("apcBlock").style.backgroundColor = "#ff5c5c";
         }else {
-            document.getElementById("apcBlock").style.backgroundColor = "#5cff5c";
+            document.getElementById("apcBlock").style.backgroundColor = "#01e774";
         }
 
 
         if(bmp_status == 1 && gps_status == 1 && gyro_status == 1 && apc_status == 1){
             document.getElementById("sysStatusText").innerHTML = "Online";
-            document.getElementById("sysBlock").style.backgroundColor = "#5cff5c";
+            document.getElementById("sysBlock").style.backgroundColor = "#01e774";
         } else if (bmp_status == 1 || gps_status == 1 || gyro_status == 1 || apc_status == 1){
             document.getElementById("sysStatusText").innerHTML = "Partially Online";
             document.getElementById("sysBlock").style.backgroundColor = "#ffd85c";
