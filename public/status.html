@@ -29,20 +29,28 @@
     <hr>
     <div class="container">
       <div class="blockContainer">
-        <div class="block" id="sysBlock">
+        <div class="specialBlock" id="sysBlock">
           <h1 id="sysStatusText">Offline</h1>
         </div>
+        <div class="specialBlock" id="seedsBlock">
+          <h1 id="seedsText">Seeds: Undeployed</h1>
+      </div>
       </div>
     </div>
+
+    <div class="title">
+      <h2 class="child">Components Status</h2>
+    </div>
+    <hr>
     <div class="container">
       <div class="blockContainer">
         <div class="block" id="bmpBlock">
           <h1 id="bmpStatusText">BMP-280</h1>
         </div>
         <div class="block" id="gpsBlock">
-          <div class="gpsText">
-          <h1 id="gpsStatusText">GPS</h1><br>
-          <h3 id="gpsSats">Satallites: --</h3>
+          <div class="innerText"><br>
+          <h1 id="gpsStatusText">GPS</h1>
+          <h3 id="gpsSats">Satallites: --</h3><br>
         </div>
         </div>
         <div class="block" id="gyroBlock">
@@ -51,10 +59,23 @@
         <div class="block" id="apcBlock">
           <h1 id="apcStatusText">APC220</h1>
         </div>
+        <div class="block" id="servoBlock">
+          <div class="innerText"><br>
+          <h1 id="servoStatusText">Servo</h1>
+          <h3 id="servoRotation">Rotation: --</h3><br>
+        </div>
+        </div>
+        <div class="block" id="sdBlock">
+          <h1 id="sdStatusText">SD Card</h1>
+        </div>
+        </div>
 
+
+      <div class="errorContainer">
       <div class="error" id="errorBlock">
-      <p id="sysText">All sensors are offline, system status will be showen as offline!</p>
+      <p id="sysText">All components are offline, system status will be showen as offline!</p>
       </div>
+    </div>
         
       </div>
     </div>

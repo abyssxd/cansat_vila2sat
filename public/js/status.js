@@ -88,10 +88,14 @@ ws.onmessage = (event) => {
         gps_status = latestData[16];
         gyro_status = latestData[17];
         apc_status = latestData[18];
+        servo_status = latestData[19];
+        servo_rotation = latestData[20];
+        sd_status = latestData[21];
         
         document.getElementById("gpsSats").innerHTML = "Satallites: " + gps_sats;
+        document.getElementById("servoRotation").innerHTML = "Rotation: " + servo_rotation;
 
-        if (bmp_status != 1 && gps_status != 1 && gyro_status != 1 && apc_status != 1) {
+        if (bmp_status != 1 && gps_status != 1 && gyro_status != 1 && apc_status != 1 && servo_status != 1 && sd_status != 1) {
         	system_status = 1;
             document.getElementById("errorBlock").style.display = "block";
         } else {
@@ -130,11 +134,23 @@ ws.onmessage = (event) => {
             document.getElementById("apcBlock").style.backgroundColor = "#01e774";
         }
 
+        if (servo_status != 1){
+            document.getElementById("servoBlock").style.backgroundColor = "#ff5c5c";
+        }else {
+            document.getElementById("servoBlock").style.backgroundColor = "#01e774";
+        }
 
-        if(bmp_status == 1 && gps_status == 1 && gyro_status == 1 && apc_status == 1){
+        if (sd_status != 1){
+            document.getElementById("sdBlock").style.backgroundColor = "#ff5c5c";
+        }else {
+            document.getElementById("sdBlock").style.backgroundColor = "#01e774";
+        }
+
+
+        if(bmp_status == 1 && gps_status == 1 && gyro_status == 1 && apc_status == 1 && servo_status == 1 && sd_status == 1){
             document.getElementById("sysStatusText").innerHTML = "Online";
             document.getElementById("sysBlock").style.backgroundColor = "#01e774";
-        } else if (bmp_status == 1 || gps_status == 1 || gyro_status == 1 || apc_status == 1){
+        } else if (bmp_status == 1 || gps_status == 1 || gyro_status == 1 || apc_status == 1 || servo_status == 1 || sd_status == 1){
             document.getElementById("sysStatusText").innerHTML = "Partially Online";
             document.getElementById("sysBlock").style.backgroundColor = "#ffd85c";
         } else {
