@@ -42,7 +42,7 @@ h1 {
     background-color:white;
     border-radius: 8px;
     width: 200%;
-    height: 180px;
+    height: 206px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -50,7 +50,7 @@ h1 {
 
 #cansatContainer {
     width: 60%;
-    height: 550px;
+    height: 620px;
     margin:20px;
     border-radius: 8px;
     background-color: white;

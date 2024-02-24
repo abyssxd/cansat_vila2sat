@@ -45,6 +45,11 @@ hr {
     text-align: center;
 }
 
+.gpsText {
+    display:flex;
+    flex-direction: column;
+}
+
 .title {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #222;

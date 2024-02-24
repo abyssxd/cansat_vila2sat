@@ -54,9 +54,28 @@ async function initCanSatVisualization() {
         const latestData = csvData[csvData.length - 1];
     
         // Convert the target rotation to radians (Provided in deg by Vila2Sat)
-        targetRotation.x = THREE.MathUtils.degToRad(Number(latestData[6]));
-        targetRotation.y = THREE.MathUtils.degToRad(Number(latestData[7]));
-        targetRotation.z = THREE.MathUtils.degToRad(Number(latestData[8]));
+        targetRotation.x = THREE.MathUtils.degToRad(Number(latestData[8]));
+        targetRotation.y = THREE.MathUtils.degToRad(Number(latestData[9]));
+        targetRotation.z = THREE.MathUtils.degToRad(Number(latestData[10]));
+
+        let gryo_x = latestData[8];
+        let gryo_y = latestData[9];
+        let gryo_z = latestData[10];
+        let gyro_acc_x = latestData[11];
+        let gyro_acc_y = latestData[12];
+        let gyro_acc_z = latestData[13];
+        let gyro_temp = latestData[14];
+
+        document.getElementById("gyroX").innerHTML = "X: " + gryo_x;
+        document.getElementById("gyroY").innerHTML = "Y: " + gryo_y;
+        document.getElementById("gyroZ").innerHTML = "Z: " + gryo_z;
+
+        document.getElementById("acceX").innerHTML = "X: " + gyro_acc_x;
+        document.getElementById("acceY").innerHTML = "Y: " + gyro_acc_y;
+        document.getElementById("acceZ").innerHTML = "Z: " + gyro_acc_z;
+
+        document.getElementById("gyroTemp").innerHTML = "Tempreature: " + gyro_temp;
+
     
         console.log("Target rotation updated"); //Debug
     };

@@ -83,11 +83,13 @@ ws.onmessage = (event) => {
         const csvData = parseCSV(event.data);
         const latestData = csvData[csvData.length - 1];
     
+        gps_sats = latestData[7];
         bmp_status = latestData[9];
         gps_status = latestData[10];
         gyro_status = latestData[11];
         apc_status = latestData[12];
         
+        document.getElementById("gpsSats").innerHTML = "Satallites: " + gps_sats;
 
         if (bmp_status != 1 && gps_status != 1 && gyro_status != 1 && apc_status != 1) {
         	system_status = 1;
