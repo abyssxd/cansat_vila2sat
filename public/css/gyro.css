@@ -29,18 +29,50 @@ h1 {
 .container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px 8.5%;
+    margin-left: 0;
+}
+
+.Infocontainer {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 10px 2.5%;
+    background-color:white;
+    border-radius: 8px;
+    width: 200%;
+    height: 180px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 
 
 #cansatContainer {
-    width: 80%;
-    height: 500px;
+    width: 60%;
+    height: 550px;
     margin:20px;
     border-radius: 8px;
-    
+    background-color: white;
+    max-width: 60%;
 }
+
+
+.InfoSection {
+
+    max-width: 40%;
+
+}
+
+.blockContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+}
+
 
 canvas { 
     display: block; 
