@@ -1,6 +1,5 @@
 # Cansat Vila2sat Dashboard
-Dashboard for monitoring Vila2Sat's CanSat data using graphs and a map for the geolocation of the cansat & the device running this application.
-
+Dashboard for monitoring Vila2Sat's CanSat system. Offers a variety of diffrent features.
 ## What is CanSat?
 
 - https://www.esa.int/Education/CanSat/What_is_a_CanSat
