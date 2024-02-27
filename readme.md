@@ -6,7 +6,13 @@ Dashboard for monitoring Vila2Sat's CanSat data using graphs and a map for the g
 - https://www.esa.int/Education/CanSat/What_is_a_CanSat
 
 ## How does it work?
-This web application uses websockets to fetch data from a .csv file and uses chart.js to create graphs for data sent by Vila2Sat's CanSat & a map for geolocation, the map uses the GPS coordinates sent by the Vila2Sat CanSat. It uses node.js and requires the express and websocket packages to run.
+This web application uses node.js and requires the express and websocket packages to run. 
+
+- It uses websockets to fetch data from a .csv file and update information on the page right when the .csv file is modified.
+- It uses chart.js to create graphs for using the data in the .csv file.
+- It uses leaflet to create a map for geolocation, the map uses the GPS coordinates in the .csv file.
+- It uses three.js to create a 3d model of the Cansat and show its real time location using the data in the .csv file.
+(The csv file is updated using the information sent by Vila2Sat's Cansat & uses the Serial to CSV converter linked near the end of the readme.)
 
 ### Why does it use WebSockets?
 This can be easily achieved using just JS, but it uses websockets as using websockets is much more efficient.
