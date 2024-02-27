@@ -12,6 +12,16 @@ This web application uses websockets to fetch data from a .csv file and uses cha
 This can be easily achieved using just JS, but it uses websockets as using websockets is much more efficient.
 
 ## What does it offer?
+
+### System Status
+- A system status page that shows:
+  - Wether the system is online or offline
+  - Wether the seeds have been deloyed or not
+  - System of various components of the Vila2Sat system such as BMP280, APC220, Gyroscope, GPS...etc
+
+### Gyroscope 3d Model
+- A real time view of the Vila2Sat's Cansat rotation using a gyroscope 3d model.
+
 ### Graphs: 
 - Tempreature
 - Altitude
@@ -28,21 +38,19 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 ## System Status
 ![Screenshot 2024-02-27 9 42 35 AM](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/0db5b0e0-8f2e-4ee4-a7f5-4a381a9b6c20)
 
-
 ## Overview
-![alt text](https://cdn.discordapp.com/attachments/773822498717696030/1201255146366177342/image.png)
+![Screenshot 2024-02-27 9 48 13 AM](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/6925b747-43c8-4263-be4d-f9602abd5e04)
+
 
 ## Graphs
+![68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3737333832323439383731373639363033302f313230313235353039373634353135383431302f696d6167652e706e67](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/e8283c3a-25b3-4aa4-aea8-ba88e48ed40a)
 
-<img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255096919527434/image.png" width="400" height="200">  <img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255097263464578/image.png" width="400" height="200">
-<img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255097645158410/image.png" width="400" height="200">  <img src="https://cdn.discordapp.com/attachments/773822498717696030/1201255098077155348/image.png" width="400" height="200">
 
 ## Vila2Sat Gyroscope Integration
 ![Screenshot 2024-02-27 9 41 35 AM](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/5c415991-3e7e-4bd0-82c1-c283bcf9c478)
 
 ## Serial to CSV Converter
 You can find the Serial to CSV converter that was made for this dashboard here -> https://github.com/abyssxd/serial_csv/
-
 
 
 ## Setup
