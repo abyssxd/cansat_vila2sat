@@ -18,13 +18,15 @@ body {
 
 hr {
     margin-bottom: 20px;
+    width: -webkit-fill-available;
 }
 
 .error {
-    background-color: #ff0000db;
+    background-color: #e24a4a;
     color: white;
     text-align: center;
     width: 90%;
+    height: auto;
     border-radius: 8px;
     border: 2px #222 solid;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -48,12 +50,38 @@ hr {
     align-items: center;
     max-width: 100%;
     text-align: center;
+    font-size: 14px;
 }
 
-.innerText {
+.blockTitle {
     display:flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin: -10px;
 }
+
+.blockBody {
+    display:block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.automargin {
+    margin-top: auto;
+}
+
+
+.blockFooter {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
 
 .title {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -69,12 +97,11 @@ hr {
 
 .block {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45%;
-    height: 10vh;
-    background-color: #ff5c5c;
-    color: white;
+    flex-direction: column;
+    width: 13%;
+    height: 44vh;
+    background-color: #fff;
+    color: #222;
     margin: 10px;
     padding: 10px;
     border: none;
@@ -82,19 +109,51 @@ hr {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.statusblock {
+
+background-color: #e24a4a;
+color: white;
+border-radius: 10px;
+width: 50%;
+margin-top: -10px;
+
+}
+
+.mainStatusblock{
+display: flex;
+justify-content: center;
+align-items: center;   
+background-color: #e24a4a;
+color: white;
+border-radius: 10px;
+width: 20%;
+height: 5vh;
+margin: 20px;
+}
+
+
 .specialBlock {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40%;
-    height: 20vh;
-    background-color: #ff5c5c;
-    color: white;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 8vh;
+    background-color: #fff;
+    color: #222;
     margin: 10px;
     padding: 10px;
     border: none;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subSpecialBlock {
+
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+
 }
 
 .download {
