@@ -41,7 +41,8 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 # Screenshots
 
 ## System Status
-![Screenshot 2024-02-27 9 42 35 AM](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/0db5b0e0-8f2e-4ee4-a7f5-4a381a9b6c20)
+![image](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/3b861ba3-138b-4598-ad82-e15b0b38b97f)
+
 
 ## Overview
 ![Screenshot 2024-02-27 9 48 13 AM](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/6925b747-43c8-4263-be4d-f9602abd5e04)
