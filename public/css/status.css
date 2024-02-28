@@ -17,7 +17,6 @@ body {
 }
 
 hr {
-    margin-bottom: 20px;
     width: -webkit-fill-available;
 }
 
@@ -63,7 +62,7 @@ hr {
 }
 
 .blockBody {
-    display:block;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
