@@ -86,12 +86,12 @@ hr {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 70%;
+    max-width: 75vw;
 }
 
 
 .chart {
-    width: 100%;
+    width: 75vw;
     height: auto;
     background-color: #ffffff;
     color: #333;
@@ -184,12 +184,12 @@ nav {
 
 @media screen and (max-width: 768px) {
     .chart {
-        width: 90%;
+        width: 90vw;
         margin: 10px auto;
     }
     .chartContainer {
         justify-content: center;
-        max-width: 100%;
+        width: 90vw;
     }
     h1 {
         margin-left: 0;
