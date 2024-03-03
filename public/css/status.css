@@ -4,8 +4,7 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    max-height: 100%;
-    overflow-y: hidden;
+    max-height: 100vh;
 }
 
 .title {
@@ -24,7 +23,7 @@ hr {
     background-color: #e24a4a;
     color: white;
     text-align: center;
-    width: 90%;
+    width: 90vw;
     height: auto;
     border-radius: 8px;
     border: 2px #222 solid;
@@ -35,6 +34,7 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2vh;
 }
 
 .container {
@@ -48,8 +48,11 @@ hr {
     justify-content: center;
     align-items: center;
     max-width: 100%;
+    width: 100%;
     text-align: center;
     font-size: 14px;
+    margin-bottom: 2vh;
+
 }
 
 .blockTitle {
@@ -97,7 +100,7 @@ hr {
 .block {
     display: flex;
     flex-direction: column;
-    width: 13%;
+    width:12vw;
     height: 44vh;
     background-color: #fff;
     color: #222;
@@ -125,7 +128,7 @@ align-items: center;
 background-color: #e24a4a;
 color: white;
 border-radius: 10px;
-width: 25%;
+width: 45%;
 height: 5vh;
 margin: 20px;
 }
@@ -153,6 +156,7 @@ width: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
+flex-wrap: wrap;
 
 }
 
@@ -263,7 +267,6 @@ nav {
         flex-wrap: wrap;
         justify-content: center;
         margin: 20px;
-        align-content: space-around;
         flex-direction: column;
         align-items: baseline;
     }
@@ -274,4 +277,20 @@ nav {
         width: 100%;
         height: auto;
     }
+    .specialBlock{
+        height: 14vh;
+    }
+    .mainStatusblock{
+        width: 100%;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 945px) {
+
+    .block {
+        width: 35vh;
+        height: auto;
+    }
+
 }
