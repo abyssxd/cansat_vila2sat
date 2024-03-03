@@ -86,12 +86,12 @@ hr {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    max-width: 75vw;
+    max-width: 65vw;
 }
 
 
 .chart {
-    width: 75vw;
+    width: 65vw;
     height: auto;
     background-color: #ffffff;
     color: #333;
