@@ -12,9 +12,11 @@ async function initCanSatVisualization() {
     renderer.setSize(container.offsetWidth, container.offsetHeight);
     container.appendChild(renderer.domElement);
 
-    // Camera position, made to look at the model in a certain position
-    camera.position.z = 230;
-    camera.position.y = 30;
+    // Move the camera further back
+    camera.position.set(0, 0, 300);
+    
+    // Look at the center of the scene
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     // Lighting to make it look cool
     const ambientLight = new THREE.AmbientLight(0xFF6900, 0.9);
@@ -46,7 +48,7 @@ async function initCanSatVisualization() {
         
     );
     
-    let targetRotation = { x: 0, y: 0, z: 0 }; // Target rotation in radians
+    let targetQuaternion = new THREE.Quaternion();
 
     ws.onmessage = (event) => {
         const csvData = parseCSV(event.data);
@@ -56,7 +58,13 @@ async function initCanSatVisualization() {
         targetRotation.x = THREE.MathUtils.degToRad(Number(latestData[8]));
         targetRotation.y = THREE.MathUtils.degToRad(Number(latestData[9]));
         targetRotation.z = THREE.MathUtils.degToRad(Number(latestData[10]));
-
+        targetQuaternion.setFromEuler(new THREE.Euler(
+            THREE.MathUtils.degToRad(Number(latestData[10])),
+            THREE.MathUtils.degToRad(Number(latestData[8])),
+            THREE.MathUtils.degToRad(Number(latestData[9])),
+            'ZXY'
+        ));
+        
         let gryo_x = latestData[8];
         let gryo_y = latestData[9];
         let gryo_z = latestData[10];
@@ -79,18 +87,16 @@ async function initCanSatVisualization() {
         console.log("Target rotation updated"); //Debug
     };
     
-    function animate() {
-        requestAnimationFrame(animate);
-    
-        if (cansatModel) {
-            // Use lerp (Linear Interpolation) for a smoother transition so that it doesn't teleport around.
-            cansatModel.rotation.x += (targetRotation.x - cansatModel.rotation.x) * 0.05;
-            cansatModel.rotation.y += (targetRotation.y - cansatModel.rotation.y) * 0.05;
-            cansatModel.rotation.z += (targetRotation.z - cansatModel.rotation.z) * 0.05;
-        }
-    
-        renderer.render(scene, camera);
+function animate() {
+    requestAnimationFrame(animate);
+
+    if (cansatModel) {
+        // Use slerp (Spherical Linear Interpolation) for a smoother animation
+        cansatModel.quaternion.slerp(targetQuaternion, 0.05);
     }
+
+    renderer.render(scene, camera);
+}
     animate();
     
 }
