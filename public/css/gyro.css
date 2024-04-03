@@ -80,67 +80,11 @@ canvas {
     box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.1)
 }
 
-nav {
-    background-color: #242424;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    margin: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-nav {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar-nav li {
-    margin-right: 1rem;
-}
-
-.navbar-nav li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.navbar-nav li a:hover {
-    color: #ccc;
-}
-
-
-
-
-/* Responsive Styles */
 
 @media screen and (max-width: 768px) {
     h1 {
         margin-left: 0;
         text-align: center;
-    }
-    .nav-right {
-        display: none;
-    }
-    .navbar-nav {
-        flex-direction: column;
-        text-align: center;
-    }
-    .navbar-nav li {
-        margin: 0.5rem 0;
     }
     .container {
         display: flex;
@@ -164,7 +108,7 @@ nav {
     
     #cansatContainer {
         width: 80vw;
-        height: 45vh;
+        height: 25vh;
         margin:20px;
         border-radius: 8px;
         background-color: white;
@@ -174,7 +118,7 @@ nav {
     canvas { 
         display: block; 
         width: 80vw !important; 
-        height: 45vh !important; 
+        height: 25vh !important; 
         border: 4px solid #ccc;
         border-radius: 8px;
         box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.1)
@@ -183,4 +127,5 @@ nav {
         max-width: 80vh;
         margin-bottom: 2vh;
     }
+    
 }
