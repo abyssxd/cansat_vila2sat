@@ -26,27 +26,21 @@ async function initCanSatVisualization() {
     renderer.setClearColor(0xABB8C3); // Set to white or any contrasting color
     let cansatModel;
 
-    // Load the OBJ loader using the OBJLoader
-    const loader = new OBJLoader();
-    loader.load(
-        // The URL to the model file
-        'models/demo.obj',
-        //  Fuction that's called when the model is loaded to set its position...etc
-        function (obj) {
-            cansatModel = obj; // Assign the loaded model to the higher scope variable
-            scene.add(cansatModel);
-            cansatModel.position.set(0, 0, 0);
-        },
-        // Called when loading is in progress
-        function (xhr) {
-            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-        },
-        // Called when loading has errors
-        function (error) {
-            console.error('An error happened', error);
-        }
-        
-    );
+
+// Load MTL file
+const mtlLoader = new MTLLoader();
+mtlLoader.load('models/obj.mtl', function (materials) {
+    materials.preload();
+
+    // Load OBJ file
+    const objLoader = new OBJLoader();
+    objLoader.setMaterials(materials);
+    objLoader.load('models/demo.obj', function (obj) {
+        cansatModel = obj;
+        scene.add(cansatModel);
+        //cansatModel.position.set(-4.5, -10, 0);
+    });
+});
     
     let targetQuaternion = new THREE.Quaternion();
 
@@ -68,21 +62,10 @@ async function initCanSatVisualization() {
         let gryo_x = latestData[8];
         let gryo_y = latestData[9];
         let gryo_z = latestData[10];
-        let gyro_acc_x = latestData[11];
-        let gyro_acc_y = latestData[12];
-        let gyro_acc_z = latestData[13];
-        let gyro_temp = latestData[14];
 
         document.getElementById("gyroX").innerHTML = "X: " + gryo_x;
         document.getElementById("gyroY").innerHTML = "Y: " + gryo_y;
         document.getElementById("gyroZ").innerHTML = "Z: " + gryo_z;
-
-        document.getElementById("acceX").innerHTML = "X: " + gyro_acc_x;
-        document.getElementById("acceY").innerHTML = "Y: " + gyro_acc_y;
-        document.getElementById("acceZ").innerHTML = "Z: " + gyro_acc_z;
-
-        document.getElementById("gyroTemp").innerHTML = "Tempreature: " + gyro_temp;
-
     
         console.log("Target rotation updated"); //Debug
     };
