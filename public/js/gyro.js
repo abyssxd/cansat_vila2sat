@@ -1,5 +1,6 @@
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { OBJLoader } from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/OBJLoader.js';
+import { MTLLoader } from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/MTLLoader.js';
 
 
 async function initCanSatVisualization() {
@@ -48,10 +49,6 @@ mtlLoader.load('models/obj.mtl', function (materials) {
         const csvData = parseCSV(event.data);
         const latestData = csvData[csvData.length - 1];
     
-        // Convert the target rotation to radians (Provided in deg by Vila2Sat)
-        targetRotation.x = THREE.MathUtils.degToRad(Number(latestData[8]));
-        targetRotation.y = THREE.MathUtils.degToRad(Number(latestData[9]));
-        targetRotation.z = THREE.MathUtils.degToRad(Number(latestData[10]));
         targetQuaternion.setFromEuler(new THREE.Euler(
             THREE.MathUtils.degToRad(Number(latestData[10])),
             THREE.MathUtils.degToRad(Number(latestData[8])),
