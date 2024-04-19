@@ -24,7 +24,6 @@ ws.onclose = function(event) {
         sd_status= 0;
         servo_status = 0;
         gps_sats= 5;
-        seeds_deployed = 0;
 
 
         bmp_temp = 25;
@@ -142,15 +141,15 @@ ws.onclose = function(event) {
 ws.onmessage = (event) => {
         const csvData = parseCSV(event.data);
         const latestData = csvData[csvData.length - 1];
-    
+        seeds_deployed = 0;
         gps_sats = latestData[7];
         bmp_status = latestData[15];
         gps_status = latestData[16];
         gyro_status = latestData[17];
-        apc_status = latestData[18];
-        servo_status = latestData[19];
-        servo_rotation = latestData[20];
-        sd_status = latestData[21];
+        apc_status = latestData[14];
+        servo_status = latestData[15];
+        servo_rotation = latestData[16];
+        sd_status = latestData[17];
 
         bmp_temp = latestData[1];
         bmp_pressure = latestData[2];
@@ -164,7 +163,6 @@ ws.onmessage = (event) => {
         gyro_x = latestData[8];
         gyro_y = latestData[9];
         gyro_z = latestData[10];
-        gyro_temp = latestData[14];
         
 
         if (bmp_status != 1 && gps_status != 1 && gyro_status != 1 && apc_status != 1 && servo_status != 1 && sd_status != 1) {
@@ -209,7 +207,6 @@ ws.onmessage = (event) => {
             document.getElementById("gyro_x").innerHTML = "Gyro X: " + gyro_x + " rad/s";
             document.getElementById("gyro_y").innerHTML = "Gyro Y: " + gyro_y+ " rad/s";
             document.getElementById("gyro_z").innerHTML = "Gyro Z: " + gyro_z+ " rad/s";
-            document.getElementById("gyro_temp").innerHTML = "Tempreature: " + gyro_temp+ " º";
         }
         
         if (apc_status != 1){
