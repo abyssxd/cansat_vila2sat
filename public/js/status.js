@@ -143,9 +143,9 @@ ws.onmessage = (event) => {
         const latestData = csvData[csvData.length - 1];
         seeds_deployed = 0;
         gps_sats = latestData[7];
-        bmp_status = latestData[15];
-        gps_status = latestData[16];
-        gyro_status = latestData[17];
+        bmp_status = latestData[11];
+        gps_status = latestData[12];
+        gyro_status = latestData[13];
         apc_status = latestData[14];
         servo_status = latestData[15];
         servo_rotation = latestData[16];
