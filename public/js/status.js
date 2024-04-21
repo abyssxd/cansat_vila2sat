@@ -141,7 +141,7 @@ ws.onclose = function(event) {
 ws.onmessage = (event) => {
         const csvData = parseCSV(event.data);
         const latestData = csvData[csvData.length - 1];
-        seeds_deployed = 0;
+        seeds_deployed =  latestData[18];
         gps_sats = latestData[7];
         bmp_status = latestData[11];
         gps_status = latestData[12];
