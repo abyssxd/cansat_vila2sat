@@ -288,13 +288,13 @@ ws.onmessage = (event) => {
     //Function to calculate Velocity
     function calculateVelocity(csvData) {
 
-        const altitudeData = csvData.slice(1).map(row => parseFloat(row[3])); //Set the altitude to the altitudeData variable
-        const timeData = csvData.slice(1).map(row => parseFloat(row[0])); //Set the time to the timeData variable
+        const altitudeData = csvData.map(row => parseFloat(row[3])); //Set the altitude to the altitudeData variable
+        const timeData = csvData.map(row => parseFloat(row[0])); //Set the time to the timeData variable
 
         let velocities = [];
 
         //Loop through the entire csv file and calculate the delta time & delta altitude for each row and store them in deltaTime & deltaAltitude variables
-        for (let i = 0; i < timeData.length; i++) {
+        for (let i = 1; i < timeData.length; i++) {
             let deltaTime = timeData[i] - timeData[i - 1];
             let deltaAltitude = altitudeData[i] - altitudeData[i - 1];
 
@@ -312,7 +312,7 @@ ws.onmessage = (event) => {
 
     const velocities = calculateVelocity(csvData); //Store the velocities in the velocities array
 
-    updateChartData(velocityChart, time, velocities); //Update the velocity chart with the data
+    updateChartData(velocityChart, time.slice(1), velocities); //Update the velocity chart with the data
 
 
     const latestRow = csvData[csvData.length - 1]; //Get the latest row for the latest GPS location
@@ -333,6 +333,7 @@ ws.onmessage = (event) => {
 //Function to parse the CSV & tirm the values. This should work both on windows and linux.
 function parseCSV(csvString) {
     const rows = csvString.trim().split(/\r?\n/);
+    rows.shift(); // This will remove the first row with headers
     return rows.map(row => row.split(',').map(cell => cell.trim()));
 }
 

@@ -83,6 +83,23 @@
     </div>
 
     <script src="js/script.js"></script>
+
+<script>
+
+if (window.innerWidth <= 768) {
+        document.querySelector('.title').style.display = 'none';
+        document.querySelector('.mobile-title').style.display = 'flex';
+        document.querySelector('.mobile-title-second').style.display = 'flex';
+        document.querySelector('.maphr').style.display = 'block';
+    } else {
+        document.querySelector('.mobile-title').style.display = 'none';
+        document.querySelector('.mobile-title-second').style.display = 'none';
+        document.querySelector('.title').style.display = 'flex';
+        document.querySelector('.maphr').style.display = 'none';
+    }
+
+</script>
+
 </body>
 
 </html>
