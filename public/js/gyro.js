@@ -20,7 +20,7 @@ async function initCanSatVisualization() {
     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     // Lighting to make it look cool
-    const ambientLight = new THREE.AmbientLight(0xFF6900, 0.9);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
     scene.add(ambientLight);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
     scene.add(directionalLight);
