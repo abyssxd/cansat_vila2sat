@@ -38,14 +38,14 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 ### Map:
 - A real time map created using leaflet maps that tracks the position of the CanSat & shows the device's location.
 
-# Screenshots
+# Screenshots/Gifs
 
 ## System Status
-![image](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/3b861ba3-138b-4598-ad82-e15b0b38b97f)
+![lv_0_20240423094752](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/d95c0fcb-3c51-4b23-8579-17f43ac30cc1)
 
 
 ## Overview
-![Screenshot 2024-02-27 9 48 13 AM](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/6925b747-43c8-4263-be4d-f9602abd5e04)
+![lv_0_20240424082016 (1)](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/6bc6eee7-3c84-4dc5-899e-fd42879e5a7b)
 
 
 ## Graphs
@@ -53,7 +53,7 @@ All these graphs get updated real time as the data we recieve from the CanSat is
 
 
 ## Vila2Sat Gyroscope Integration
-![Screenshot 2024-02-27 9 41 35 AM](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/5c415991-3e7e-4bd0-82c1-c283bcf9c478)
+![lv_0_20240423100037 (1)](https://github.com/abyssxd/cansat_vila2sat/assets/57658642/54722e10-8f4a-4693-b440-81cf041c9eec)
 
 ## Serial to CSV Converter
 You can find the Serial to CSV converter that was made for this dashboard here -> https://github.com/abyssxd/serial_csv/
