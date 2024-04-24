@@ -67,6 +67,7 @@ You can find the Serial to CSV converter that was made for this dashboard here -
 4. You can either use the `start.bat` if you use windows, or run `node server.js` to run the server
 5. The server will be hosted on `localhost:3000`
 
+## License
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
 This work is licensed under a
